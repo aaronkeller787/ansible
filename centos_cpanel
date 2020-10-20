@@ -1,0 +1,28 @@
+-
+  name: "Install cPanel on CentOS 7"
+  hosts: [centos_servers]
+  become: yes
+  tasks:
+    - name: "Installing System Updates"
+      yum:
+        name: "*"
+        state: latest
+
+    - name: "Remove MaaS Proxy Configuration"
+      command: sed -i 's/^proxy=/#&/' /etc/yum.conf
+
+    - name: "Install Required Packages"
+      yum:
+        name:
+          - perl
+          - curl
+        state: latest
+
+    - name: "Download cPanel"
+      shell: curl -o latest -L https://securedownloads.cpanel.net/latest
+
+    - name: "Correct Permissions"
+      shell: chmod +x latest
+
+    - name: "Install cPanel"
+      shell: sh latest
