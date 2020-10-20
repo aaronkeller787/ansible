@@ -1,3 +1,8 @@
+#############################################################################################
+# Purpose of this playbook is to update CentOS 7, install cPanel and all necessary packages #
+#############################################################################################
+
+
 -
   name: "Install cPanel on CentOS 7"
   hosts: [centos_servers]
