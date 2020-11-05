@@ -1,3 +1,3 @@
 # ansible
 
-Ansible Playbooks of varying usefulness
+Ansible Playbooks of varying degrees of usefulness
